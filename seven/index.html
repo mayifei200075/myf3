@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script>
+			function createA(){
+				div=document.getElementById("div1");
+				x=document.createElement("a");
+				x.innerHTML="</br>"+"新建A元素";
+				div.appendChild(x);
+				x.style.color="yellow";
+				x.style.backgroundColor="red";
+				x.style.textDecoration="none";
+				x.setAttribute("href","#");
+			}
+			function deleteP(){
+				div=document.getElementById("div1");
+				x=div.childNodes;
+				y=x.length;
+				for(i=0;i<=y;i++)
+				{
+					if(x[i].tagName=="P")
+					{
+					   div.removeChild(div.childNodes[i]);
+					}
+				}
+				
+			}
+			function deleteA(){
+				div=document.getElementById("div1");
+				x=div.childNodes;
+				y=x.length;
+				i=0;
+                for(i=y-1;i>=0;i--)
+                {
+                    if(x[i].tagName=="A")
+                    {
+                    	div.removeChild(div.childNodes[i]);
+                    }
+                }
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1" style="border: 1px solid black;">
+		<a href="#" id="a1">这是一个a元素</a>
+		<p id="p1">这是一个p元素</p>
+		<p id="p2">这是二个p元素</p>
+		<p id="p3">这是三个p元素</p>
+		</div>
+		<button onclick="createA()">点击创建一个a元素<tton>
+		<button onclick="deleteP()">点击删除所有p元素<tton>
+		<button onclick="deleteA()">点击删除所有a元素<tton>
+        <button id="c" value="变颜色" onclick="change()">变</button>
+        		<script>
+           var b =document.getElementById('c');
+           var i= document.getElementById("div1");
+    function change(){
+        i.style.backgroundColor='deepskyblue';
+    }
+</script>
+	</body>
+<ml>
