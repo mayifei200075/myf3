@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script>
+			function changeColorOne(c1){//变名字颜色
+				c1.style.color="red";
+			}
+			function changeColorTwo(c2){
+				c2.style.color="black";
+			}
+			var count=1;
+			window.onload=function(){
+				var input_botton=document.getElementById("input");
+				var count=0;
+				input_botton.onclick = function(){
+				var name=document.getElementById("name").value;
+				var sex=document.getElementsByName("sex");
+				var x=document.getElementById("table");
+				var y=document.createElement("tr");
+				var gender;
+				for(i=0;i<=1;i++)
+				{
+					if(sex[i].checked==true){//判断输入的性别
+					    if(sex[i].value==0){
+					    	gender="男";
+					    }
+					    else gender="女";
+					}
+				}
+				y.innerHTML="<th style='bgcolor=red'>"+count+"</th>"+//加编号
+				"<td id='zz"+count+"' onmouseover='changeColorOne(this)' onmouseout='changeColorTwo(this)'>"+name+"</a>"+"</th>"+//加姓名
+				"<th>"+gender+"</th>"+//加性别
+				"<th>"+"<a href='#' onclick='removeCol(this);'>删除</a></td>";//加按钮
+				x.appendChild(y);
+				count++;
+				}
+			}
+			function removeCol(del){//删整行
+				var del=del.parentNode.parentNode;
+				del.parentNode.removeChild(del);
+			}
+		</script>
+	</head>
+	<body>
+		<form name="first">姓名<input type="text" id="name" /></form>
+		<form>
+			性别：
+			男<input type="radio"  value="0" name="sex"/>
+			女<input type="radio"  value="1" name="sex"/>
+		</form>
+		<button id="input">搜索<tton>
+		<table border="1" cellspacing="0" width="800px" align="center" id="table">
+				<tr height="50px">
+					<th width="100px">编号</th>
+					<th width="100px">姓名</th>
+					<th width="100px">性别</th>
+					<th width="100px">按钮</th>
+				</tr>
+		</table>
+	</body>
+<ml>
